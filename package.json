@@ -11,7 +11,8 @@
     "build": "bun build scripts/mobile-logo-cli.ts --outdir dist --target bun"
   },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "@types/node": "^25.6.2"
   },
   "peerDependencies": {
     "typescript": "^5"

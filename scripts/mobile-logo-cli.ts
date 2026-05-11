@@ -51,7 +51,14 @@ const downloadFile = async (url: string, dest: string, retries = 3) => {
 
 // === Main ===
 const fileUrl = `https://cdn.jsdelivr.net/gh/AltruisticCraftLab/mobile-starter-snippets@main/logo/logo.tsx`;
-const targetDir = join(process.cwd(), "src/components/shared");
+
+const outputArg = process.argv
+  .find((a) => a.startsWith("--output="))
+  ?.split("=")[1];
+const targetDir = outputArg
+  ? join(process.cwd(), outputArg)
+  : join(process.cwd(), "src/components/shared");
+
 const targetPath = join(targetDir, "logo.tsx");
 
 ensureDir(targetDir);

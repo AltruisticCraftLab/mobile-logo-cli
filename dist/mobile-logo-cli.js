@@ -42,7 +42,8 @@ var downloadFile = async (url, dest, retries = 3) => {
   }
 };
 var fileUrl = `https://cdn.jsdelivr.net/gh/AltruisticCraftLab/mobile-starter-snippets@main/logo/logo.tsx`;
-var targetDir = join(process.cwd(), "src/components/shared");
+var outputArg = process.argv.find((a) => a.startsWith("--output="))?.split("=")[1];
+var targetDir = outputArg ? join(process.cwd(), outputArg) : join(process.cwd(), "src/components/shared");
 var targetPath = join(targetDir, "logo.tsx");
 ensureDir(targetDir);
 console.log(`\u2B07\uFE0F Downloading logo.tsx...`);
